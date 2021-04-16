@@ -1,0 +1,20 @@
+*{
+    padding: 0%;
+    margin: 0%;
+    box-sizing: border-box;
+}
+.body{
+    background-color: grey;
+}
+
+.img-us{
+    width: 80%;
+    position: relative;
+    left: 5%;
+    margin: 5%;
+}
+
+.about{
+    width: 80%;
+    margin: 10%;
+}

@@ -1,0 +1,36 @@
+/*!
+ * Start Bootstrap - Shop Homepage (https://startbootstrap.com/template/shop-homepage)
+ * Copyright 2013-2020 Start Bootstrap
+ * Licensed under MIT (https://github.com/StartBootstrap/startbootstrap-shop-homepage/blob/master/LICENSE)
+ */
+body {
+  padding-top: 56px;
+}
+
+.contact-title {
+  display: flex;
+    justify-content: center;
+    /* background-color: lightgrey; */
+    height: 90px;
+    align-items: center;
+    font-size: 25px;
+    background-color: #343a40!important;
+    color: white;
+    margin: 5% 0%;
+}
+
+.contact {
+  width: 80%;
+  position: relative;
+  left: 10%;
+}
+.container-video{
+    display: flex;
+    justify-content: center;    
+    margin: 3%;
+}
+.art-head{
+  justify-content: center;
+  display: flex;
+
+}
