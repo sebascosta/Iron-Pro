@@ -3,13 +3,13 @@ let precio = 2000;
 let acumulador = ``;
 let precios = [575, 1150, 2300, 4600, 330, 200];
 let articulos = ['Discos 2.5kg', 'Discos 5kg', 'Discos 10kg', 'Discos 20kg', 'Discos Bumpers xKG', 'Discos PVC x KG'];
-let images = ['2kg.png', '5kg.png', '10kg.png', '20kg.png', 'olimpicos.png', 'pvc.png' ];
+let images = ['img/2kg.png', 'img/5kg.png', 'img/10kg.png', 'img/20kg.png', 'img/olimpicos.png', 'img/pvc.png' ];
 let totalDelCarrito = 0;
 
 for (let i = 0; i < articulos.length; i++) {  
   acumulador += `<div class="col-lg-4 col-md-6 mb-4">
     <div class="card h-100">
-    <a href="#"><img class="card-img-top" src="${images[i]}" alt=""></a>
+    <a href="#"><img class="card-img-top" src="${images[i]}" alt="Imagen producto"></a>
     <div class="card-body">
     <h4 class="card-title">
     <a href="#"> ${articulos[i]} </a>
@@ -48,12 +48,13 @@ for (let i = 0; i < articulos.length; i++) {
     }else if (cuota > 6 && cuota <= 12){
       interes = 1.50; 
     };
-    
-    return "El precio total en esas cuotas es " + (valor * interes)
-  }
-  //let monto = prompt('Ingrese monto del producto');
+    totalInteres = (valor * interes)
+    alert( "El precio total en esas cuotas es " + totalInteres);
+  };
+
+
+  //let valor = parseInt(prompt('Ingrese monto del producto'));
   //let cuota = parseInt(prompt('Ingrese cantidad de cuotas'));
-  //alert (calcularCuotas (monto,cuota ));
   
   ////////////////////////////////////////////////////////////////////////////////////////////////
 

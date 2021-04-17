@@ -18,3 +18,10 @@
     width: 80%;
     margin: 10%;
 }
+
+#title-kb{
+    background-color: darkgray;
+    padding: 0.5em;
+    font-size: 3em;
+    margin: 0 0.5em;
+}
