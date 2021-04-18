@@ -17,6 +17,8 @@
 .about{
     width: 80%;
     margin: 10%;
+    color: white;
+    margin-bottom: 20%;
 }
 
 #title-kb{
@@ -24,4 +26,10 @@
     padding: 0.5em;
     font-size: 3em;
     margin: 0 0.5em;
+}
+
+.us-body{
+    background-image: url(https://images.pexels.com/photos/669584/pexels-photo-669584.jpeg?cs=srgb&dl=pexels-lukas-669584.jpg&fm=jpg);
+    background-size:cover;
+    
 }
