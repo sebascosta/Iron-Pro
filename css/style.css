@@ -3,29 +3,37 @@
     margin: 0%;
     box-sizing: border-box;
 }
-.body{
-    background-color: grey;
+body{
+    padding:0 5%;
+    
 }
 
 .img-us{
-    width: 80%;
     position: relative;
-    left: 5%;
-    margin: 5%;
+    left: 27%;
+    padding: 3%
 }
 
 .about{
-    width: 80%;
-    margin: 10%;
+    
+    text-align: center;
     color: white;
-    margin-bottom: 20%;
+   
+    
+}
+
+.sec-about{
+    margin: 5%;
+    color: white;
+    
 }
 
 #title-kb{
     background-color: darkgray;
     padding: 0.5em;
     font-size: 3em;
-    margin: 0 0.5em;
+    margin: 1 0.5em;
+    border-radius: 5px;
 }
 
 .us-body{

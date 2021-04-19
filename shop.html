@@ -14,7 +14,8 @@
   <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
   <!-- Custom styles for this template -->
-  <link href="css/shop-homepage.css" rel="stylesheet">
+  <!--<link href="css/shop-homepage.css" rel="stylesheet">//-->
+  <link href="css/style.css" rel="stylesheet">
 
 </head>
 
@@ -50,15 +51,26 @@
     </div>
   </nav>
 
-<div style="height: 600px; margin:5%;">
+  
 
 
-<h2> Articulo</h2>
+  <h2 style="margin-top: 10%;"> Articulos </h2>
+
+  <select class="form-select" aria-label="Default select example" id="opciones">
+    <option selected>Filtrar artículos</option>
+    <option value="1">Kettlebells</option>
+    <option value="2">Discos</option>
+    <option value="3">Barras olimpicas</option>
+    <option value="4">Mancuernas</option>
+    <option value="5">Accesorios</option>
+  </select>
+    
+
+  <div class="row" id="articulos"></div>
 
 
 
 
-</div>
 
 
 
@@ -72,10 +84,10 @@
 
   <!-- Bootstrap core JavaScript -->
 
-  <script src="main.js"></script>
-  <script src="vendor/jquery/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.1/gsap.min.js" integrity="sha512-cdV6j5t5o24hkSciVrb8Ki6FveC2SgwGfLE31+ZQRHAeSRxYhAQskLkq3dLm8ZcWe1N3vBOEYmmbhzf7NTtFFQ==" crossorigin="anonymous"></script>
-  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="shop.js"></script>
+  <scrip src="vendor/jquery/jquery.min.js"></scrip>
+  <scrip src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.1/gsap.min.js" integrity="sha512-cdV6j5t5o24hkSciVrb8Ki6FveC2SgwGfLE31+ZQRHAeSRxYhAQskLkq3dLm8ZcWe1N3vBOEYmmbhzf7NTtFFQ==" crossorigin="anonymous"></scrip>
+  <scrip src="vendor/bootstrap/js/bootstrap.bundle.min.js"></scrip>
   
 
 </body>

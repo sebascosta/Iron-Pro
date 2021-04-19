@@ -5,6 +5,7 @@
  */
 body {
   padding-top: 56px;
+  
 }
 
 .contact-title {
@@ -33,4 +34,8 @@ body {
   justify-content: center;
   display: flex;
 
+}
+
+.bi bi-chat-square-dots{
+color: white;
 }
