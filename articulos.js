@@ -29,14 +29,14 @@ class producto {
     const productoCuatro = new producto ('Kettlebell 20kg', 4600, 10, 'img/KB20.png' );
     const productoCinco = new producto ('Kettlebell 5kg', 330, 10, 'img/KB5.png' );
     const productoSeis = new producto ('Kettlebell PVC xKg', 200, 10, 'img/KBpvc.png' );
-    const productoSiete = new producto ('Kettlebell 12kg', 600, 10,'img/KB12.png'  );
+    const productoSiete = new producto ('Kettlebell 12kg', 2800, 10,'img/KB12.png'  );
 
     let productList = [productoDos, productoTres, productoCuatro, productoCinco,  productoSeis, productoSiete ];
     
     //Creación de cards con nuevos articulos:
     for (let i = 0; i < productList.length; i++) {  
-        lista += `<div class="col-lg-4 col-md-6 mb-4">
-        <div class="card h-100">
+        lista += `<div class="col-lg-4 col-md-6 mb-4 >
+        <div class="card h-100" style= "box-shadow: 4px 5px 5px lightgrey; border-radius:4px">
         <a href="#"><img class="card-img-top" src="${productList[i].images}" alt=""></a>
         <div class="card-body">
         <h4 class="card-title">
@@ -45,9 +45,9 @@ class producto {
         <h5> $${productList[i].precio}</h5>
         <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur! Lorem ipsum dolor sit amet.</p>
         </div>
-        <div class="card-footer">
-        <button onclick= "agregarItem( ${productList[i].nombre})">Agregar al carrito</button>    
-        <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>    
+        <div class="card-footer" style= "text-align: center">
+        <button type="button" class="btn btn-primary" onclick= "agregarItem( ${productList[i].nombre})">Agregar al carrito</button>    
+           
         </div>
         </div>
         </div>`;
