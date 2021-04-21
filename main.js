@@ -5,6 +5,7 @@ let precios = [575, 1150, 2300, 4600, 330, 200];
 let articulos = ['Discos 2.5kg', 'Discos 5kg', 'Discos 10kg', 'Discos 20kg', 'Discos Bumpers xKG', 'Discos PVC x KG'];
 let images = ['img/2kg.png', 'img/5kg.png', 'img/10kg.png', 'img/20kg.png', 'img/olimpicos.png', 'img/pvc.png' ];
 let totalDelCarrito = 0;
+let stock = 10;
 
 for (let i = 0; i < articulos.length; i++) {  
   acumulador += `<div class="col-lg-4 col-md-6 mb-4">
@@ -28,8 +29,11 @@ for (let i = 0; i < articulos.length; i++) {
   document.getElementById('productos').innerHTML = acumulador;
   
  function addToCart(precios, articulos){
+   if(stock= 0){
+     alert ('Lo sentimos, no tenemos stock en este momento!')
+   }else {
    totalDelCarrito+= precios  
-  alert(`Se agregó el artículo al carrito. El total es: ${totalDelCarrito}.`);
+  alert(`Se agregó el artículo al carrito. El total es: ${totalDelCarrito}.`)};
  };
 
  
