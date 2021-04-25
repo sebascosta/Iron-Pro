@@ -28,11 +28,11 @@ for (let i = 0; i < articulos.length; i++) {
 
   document.getElementById('productos').innerHTML = acumulador;
   
- function addToCart(precios, articulos){
+ function addToCart(precios){
    if(stock= 0){
      alert ('Lo sentimos, no tenemos stock en este momento!')
    }else {
-   totalDelCarrito+= precios  
+   totalDelCarrito+= precios 
   alert(`Se agregó el artículo al carrito. El total es: ${totalDelCarrito}.`)};
  };
 
