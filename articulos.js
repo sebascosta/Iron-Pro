@@ -1,5 +1,13 @@
+let almacenamiento = localStorage.getItem('carrito');
+
 let lista= '';
-let carrito= '';
+let carrito= [];
+
+if (almacenamiento == 'null'){
+    carrito = [];
+}else{
+    carrito = almacenamiento;
+}
 
 
 // función constructora 
@@ -74,7 +82,8 @@ class producto {
 
 
 
-  function addToCart(precio){   
+  function addToCart(precio){
+        localStorage.setItem ('carrito', carrito);   
         carrito +=  precio
         alert(`Se agregó el artículo al carrito y el total es: ${carrito}`)
 
