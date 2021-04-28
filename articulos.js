@@ -62,8 +62,8 @@ class producto {
     //Creación de cards con nuevos articulos:
     for (let i = 0; i < productList.length; i++) {  
         lista += `<div class="col-lg-4 col-md-6 mb-4 >
-        <div class="card h-100" style= "box-shadow: 4px 5px 5px lightgrey; border-radius:4px">
-        <a href="#"><img class="card-img-top" src="${productList[i].images}" alt=""></a>
+        <div class="card h-100 style= "box-shadow: 4px 5px 5px lightgrey; border-radius:4px">
+        <a href="#"><img class="card-img-top" style = "height 32rem"src="${productList[i].images}" alt="Imagen"></a>
         <div class="card-body">
         <h4 class="card-title">
         <a href="#"> ${productList[i].nombre} </a>
@@ -83,7 +83,7 @@ class producto {
 
 
   function addToCart(precio){
-        localStorage.setItem ('carrito', carrito);   
+        localStorage.setItem ('carrito', carrito)   
         carrito +=  precio
         alert(`Se agregó el artículo al carrito y el total es: ${carrito}`)
 

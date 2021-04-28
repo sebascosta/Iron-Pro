@@ -3,10 +3,6 @@
     margin: 0%;
     box-sizing: border-box;
 }
-body{
-    padding:0 5%;
-    
-}
 
 .img-us{
     position: relative;
@@ -40,5 +36,22 @@ body{
     background-image: url(https://images.pexels.com/photos/669584/pexels-photo-669584.jpeg?cs=srgb&dl=pexels-lukas-669584.jpg&fm=jpg);
     background-size:cover;
     
+}
+
+.title-user{
+    font-size: 30px;
+    text-align: center;
+}
+
+.table table-striped{
+
+    width: 80%;
+}
+
+.sec-cards{
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+   
 }
 

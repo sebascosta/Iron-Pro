@@ -79,3 +79,4 @@ for (let i = 0; i < articulos.length; i++) {
 
 
 
+ console.log(document.body);
