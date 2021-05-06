@@ -14,7 +14,7 @@
   <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
   <!-- Custom styles for this template -->
-  <!--<link href="css/shop-homepage.css" rel="stylesheet">//-->
+  <link href="css/shop-homepage.css" rel="stylesheet">
   <link href="css/style.css" rel="stylesheet">
 
 </head>
@@ -53,21 +53,25 @@
 
   
 
+  
+  <h2 style="margin:5%; justify-content:center; display:flex;"> Articulos </h2>
 
-  <h2 style="margin-top: 10%;"> Articulos </h2>
 
-  <select class="form-select" aria-label="Default select example" id="opciones">
-    <option selected>Filtrar artículos</option>
-    <option value="1">Kettlebells</option>
-    <option value="2">Discos</option>
-    <option value="3">Barras olimpicas</option>
-    <option value="4">Mancuernas</option>
-    <option value="5">Accesorios</option>
+  <select onchange = filtrar() id="opciones">
+    <option value="all">Todos</option>
+    <option value="KB">Kettlebells</option>
+    <option value="Discos">Discos</option>
+    <option value="barras">Barras olimpicas</option>
+    <option value="mancuernas">Mancuernas</option>
+    <option value="accesorios">Accesorios</option>
   </select>
-    
+  <!--<button onclick=filtrar()>Filtrar</button>-->
+
+
+  <div class="col-lg-9" style="margin-left: 10%;">
 
   <div class="row" id="articulos"></div>
-
+  </div>
 
 
 
