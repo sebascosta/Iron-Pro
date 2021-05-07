@@ -12,23 +12,38 @@ class producto {
 
 const productList = [];
 
-    productList.push(productoUno = new producto ('Kettlebell 5kg', 1150, 10, 'img/KB5.png'));
-    productList.push(productoDos = new producto ('Kettlebell 8kg', 2300, 10,'img/KB8.png'))
-    productList.push(productoTres = new producto ('Kettlebell 10kg', 3600, 10, 'img/KB10.png'))
-    productList.push(productoCuatro = new producto ('Kettlebell 12kg', 4330, 10, 'img/KB5.png'));
-    productList.push(productoCinco = new producto ('Kettlebell PVC xKg', 200, 10, 'img/KBpvc.png'))
-    productList.push(productoSeis = new producto ('Kettlebell 20kg', 4600, 10, 'img/KB20.png'))
+    productList.push(productoUno = new producto ('Kettlebell 5kg', 1150, 10, 'img/KB-prueba.png'));
+    productList.push(productoDos = new producto ('Kettlebell 8kg', 2300, 10,'img/KB-prueba.png'))
+    productList.push(productoTres = new producto ('Kettlebell 10kg', 3600, 10, 'img/KB-prueba.png'))
+    productList.push(productoCuatro = new producto ('Kettlebell 12kg', 4330, 10, 'img/KB-prueba.png'));
+    productList.push(productoCinco = new producto ('Kettlebell PVC xKg', 200, 10,'img/KB-prueba.png'))
+    productList.push(productoSeis = new producto ('Kettlebell 20kg', 4600, 10,'img/KB-prueba.png'))
 
-for (var i = 0; i < productList.length; i++){
-lista +=`<div class="card" style="width: 20rem">
-    <img src="${productList[i].images}" class="card-img" alt="...">
-    <div class="card-body">
-      <h4 class="card-title">${productList[i].nombre}</h4>
-      <h5>$${productList[i].precio}</h5>
-      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-      <a href="#" class="btn btn-primary">Agregar al carrito</a>
+
+    for (let i = 0; i < productList.length; i++) {  
+        lista += `<div class="container-card">
+        <div class="card">
+                <div class="sneaker">
+                    <div class="circle"></div>
+                    <img src="${productList[i].images}" alt="kb">
+                </div>
+                    
+            <div class="info">
+                <h1 class="title">${productList[i].nombre}</h1>    
+                    <h3>MANCUERNA RUSA KETTLEBELL GENETIC PRO</h3>
+            </div>
+            <div class="sizes">
+                <button>10</button>
+                <button>12</button>
+                <button class="active">15</button>
+                <button>20</button>
+            </div>
+            <div class="purchase">
+                <button>Comprar</button>
+            </div>
+        </div>
     </div>
-</div>`
-}
+    `
+    };
 
-document.getElementById('kettlebells').innerHTML = lista;
+  document.getElementById('articulos').innerHTML = lista;

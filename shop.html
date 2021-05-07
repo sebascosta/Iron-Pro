@@ -14,8 +14,11 @@
   <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
   <!-- Custom styles for this template -->
+  <link href="/startbootstrap-shop/ejercicio/styleEj.css" rel="stylesheet">
   <link href="css/shop-homepage.css" rel="stylesheet">
   <link href="css/style.css" rel="stylesheet">
+  
+
 
 </head>
 
@@ -51,27 +54,25 @@
     </div>
   </nav>
 
+
+  <div class="select-div">
+    <h3>Elegí categoría</h3>
+    <select onchange = filtrar() id="opciones">
+     <option value="all">Todos</option>
+     <option value="KB">Kettlebells</option>
+     <option value="Discos">Discos</option>
+     <option value="barras">Barras olimpicas</option>
+     <option value="mancuernas">Mancuernas</option>
+     <option value="accesorios">Accesorios</option>
+    </select>
+  </div>  
+ 
+ 
+  <!--<<div class="col-lg-9" style="margin-left: 10%;">>-->
+
+  <div class="cards-content" id="articulos"></div>
   
 
-  
-  <h2 style="margin:5%; justify-content:center; display:flex;"> Articulos </h2>
-
-
-  <select onchange = filtrar() id="opciones">
-    <option value="all">Todos</option>
-    <option value="KB">Kettlebells</option>
-    <option value="Discos">Discos</option>
-    <option value="barras">Barras olimpicas</option>
-    <option value="mancuernas">Mancuernas</option>
-    <option value="accesorios">Accesorios</option>
-  </select>
-  <!--<button onclick=filtrar()>Filtrar</button>-->
-
-
-  <div class="col-lg-9" style="margin-left: 10%;">
-
-  <div class="row" id="articulos"></div>
-  </div>
 
 
 
@@ -79,12 +80,6 @@
 
 
 
-  <footer class="py-5 bg-dark">
-    <div class="container">
-      <p class="m-0 text-center text-white">Copyright &copy; Iron Pro Store</p>
-    </div>
-    <!-- /.container -->
-  </footer>
 
   <!-- Bootstrap core JavaScript -->
 

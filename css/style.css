@@ -35,7 +35,10 @@
 .table table-striped{
     width: 80%;
 }
-
+.select-div{
+    margin-top: 2rem;
+    text-align: center;
+}
 .sec-cards{
     display: flex;
     justify-content: space-evenly;
@@ -62,3 +65,13 @@ ul li
     color: red;
 }
 
+.title-mancuernas{
+font-family: 'Heebo', sans-serif;
+justify-content: center;
+margin: 1rem;
+padding: 1rem;
+background-color:#E71D36;
+color: white;
+border-radius: 10px;
+display: flex;
+}

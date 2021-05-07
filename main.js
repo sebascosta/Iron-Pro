@@ -80,3 +80,21 @@ for (let i = 0; i < articulos.length; i++) {
 
 
  console.log(document.body);
+
+
+ /////////////////////////////////Local Storage Ingreso de usuario/////////////////////////////////////
+
+
+
+ let usuario; 
+
+ const infoStorage = localStorage.getItem('usuario');
+
+ if(infoStorage){
+   usuario = infoStorage; 
+ }else{ 
+    usuario = prompt('Ingrese su nombre de usuario');
+ }; 
+
+ alert('Bienvenido/a '+ usuario);
+ localStorage.setItem('usuario', usuario);
