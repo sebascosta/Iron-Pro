@@ -33,12 +33,7 @@ const productList = [];
                 <h1 class="title">${productList[i].nombre}</h1>    
                     <h3>MANCUERNA RUSA KETTLEBELL GENETIC PRO</h3>
             </div>
-            <div class="sizes">
-                <button>10</button>
-                <button>12</button>
-                <button class="active">15</button>
-                <button>20</button>
-            </div>
+           
             <div class="purchase">
                 <button onclick= "agregarItem(${productList[i].id})">Comprar</button>
             </div>
@@ -69,3 +64,16 @@ function agregarItem(id){
     console.log(carrito)
 
 }
+
+
+
+const modalContenedor = document.getElementsByClassName('modal-contenedor')[0];
+const botonAbrir = document.getElementById('botonAbrir');
+botonAbrir.addEventListener('click',()=>{
+   modalContenedor.classList.toggle('modal-active');
+})
+
+const botonCerrar= document.getElementById('carritoCerrar');
+botonCerrar.addEventListener('click',()=>{
+    modalContenedor.classList.toggle('modal-active');
+})

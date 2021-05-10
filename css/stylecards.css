@@ -60,7 +60,7 @@ justify-content: center;
 }
 
 .info h1{
-  font-size:1rem;
+  font-size:1.5rem;
   margin-top: 1rem;
   text-align: center;
 }
@@ -109,4 +109,56 @@ button.active{
   cursor: pointer;
   border-radius:30px;
   font-weight: bolder;
+}
+
+
+.modal-contenedor{
+  background-color: lightblue;
+  
+  top: 0;
+  width: 100%;
+  height: 50vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all .5s
+}
+
+.modal-carrito{
+  background-color: white;
+  width: 50%;
+  border-radius: 10px;
+  padding: 1rem;
+}
+
+#carritoCerrar{
+  display: flex;
+    border-radius: 10px;
+    width: 40px;
+    justify-content: center;
+    position: o;
+    left: 90%;
+    position: relative;
+    top: -40px;
+}
+
+#botonAbrir{
+  justify-items:center;
+  display: flex;
+  align-items:center
+}
+
+.abrirCart{
+  display: grid;
+  justify-content: center;
+  height: 50px;
+}
+
+.modal-active{
+  display:none;
+}
+
+.productoEnCarrito{
+  display: flex;
+  justify-content: space-between;
 }

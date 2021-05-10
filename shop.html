@@ -14,10 +14,10 @@
   <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
   <!-- Custom styles for this template -->
-  <link href="/startbootstrap-shop/ejercicio/styleEj.css" rel="stylesheet">
+  <link href="css/stylecards.css" rel="stylesheet">
   <link href="css/shop-homepage.css" rel="stylesheet">
   <link href="css/style.css" rel="stylesheet">
-  
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
 
 
 </head>
@@ -71,7 +71,26 @@
   <!--<<div class="col-lg-9" style="margin-left: 10%;">>-->
 
   <div class="cards-content" id="articulos"></div>
-  
+    <div class="abrirCart">
+    <button id="botonAbrir" class="btn btn-primary">Carrito de compras<i class="bi bi-cart""></i></button>
+  </div>
+    <div class="modal-contenedor modal-active">
+      <div class= "modal-carrito">
+        <h3>Carrito de compras </h3>
+        <button id="carritoCerrar"><i class="bi bi-x-lg"></i></button>
+    <div id="carrito-contenedor"></div>
+      <!--<div class= "productoEnCarrito">
+        <p>Nombre</p>
+        <p>Precio:$</p>
+        <p class="precioProducto">Precio total:$ </p>
+        <button class="boton-eliminar"><i class="bi bi-trash-fill"></i></button>
+      </div>-->
+    </div>
+        </div>
+  </div>  
+
+
+
 
 
 
@@ -85,7 +104,7 @@
 
   <script src="shop.js"></script>
   <scrip src="vendor/jquery/jquery.min.js"></scrip>
-  <scrip src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.1/gsap.min.js" integrity="sha512-cdV6j5t5o24hkSciVrb8Ki6FveC2SgwGfLE31+ZQRHAeSRxYhAQskLkq3dLm8ZcWe1N3vBOEYmmbhzf7NTtFFQ==" crossorigin="anonymous"></scrip>
+ 
   <scrip src="vendor/bootstrap/js/bootstrap.bundle.min.js"></scrip>
   
 

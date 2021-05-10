@@ -2,7 +2,8 @@ let lista = '';
 
 
 class producto {
-    constructor (nombre, precio, stock, images) {
+    constructor (id, nombre, precio, stock, images) {
+        this.id = id
         this.nombre = nombre;
         this.precio = parseInt(precio);
         this.stock = stock;
@@ -13,12 +14,12 @@ class producto {
     
 
 
-    const productoDos = new producto ('Kettlebell 8kg', 1150, 10, 'img/KB-prueba.png');
-    const productoTres = new producto ('Kettlebell 10kg', 2300, 10,'img/KB-prueba.png');
-    const productoCuatro = new producto ('Kettlebell 20kg', 4600, 10, 'img/KB-prueba.png');
-    const productoCinco = new producto ('Kettlebell 5kg', 330, 10,'img/KB-prueba.png');
-    const productoSeis = new producto ('Kettlebell PVC xKg', 200, 10,'img/KB-prueba.png');
-    const productoSiete = new producto ('Kettlebell 12kg', 600, 10,'img/KB-prueba.png');
+    const productoDos = new producto (2,'Kettlebell 8kg', 1150, 10, 'img/KB-prueba.png');
+    const productoTres = new producto (3,'Kettlebell 10kg', 2300, 10,'img/KB-prueba.png');
+    const productoCuatro = new producto (4,'Kettlebell 20kg', 4600, 10, 'img/KB-prueba.png');
+    const productoCinco = new producto (5,'Kettlebell 5kg', 330, 10,'img/KB-prueba.png');
+    const productoSeis = new producto (6,'Kettlebell PVC xKg', 200, 10,'img/KB-prueba.png');
+    const productoSiete = new producto (7,'Kettlebell 12kg', 600, 10,'img/KB-prueba.png');
 
     let productList = [productoDos, productoTres, productoCuatro, productoCinco,  productoSeis, productoSiete ]; 
     
@@ -61,7 +62,7 @@ class producto {
                 <button>20</button>
             </div>
             <div class="purchase">
-                <button>Comprar</button>
+            <button onclick= "agregarItem(${productList[i].id})">Comprar</button>
             </div>
         </div>
     </div>
@@ -80,3 +81,52 @@ class producto {
     console.log(arrayFiltrado)
   }
   
+  let carrito=[] 
+  function agregarItem(id){
+    
+    let productoElegido = productList.find(el => el.id == id);
+    
+    if(productoElegido){
+        carrito.push(productoElegido)
+        alert('Se agegó el producto al carrito')   
+    }else{ 
+        alert('Producto no disponible')
+    }
+    localStorage.setItem('carrito', JSON.stringify(carrito))
+    console.log(carrito)
+
+    actualizarCarrito();
+}  
+
+const modalContenedor = document.getElementsByClassName('modal-contenedor')[0];
+const botonAbrir = document.getElementById('botonAbrir');
+botonAbrir.addEventListener('click',()=>{
+   modalContenedor.classList.toggle('modal-active');
+})
+
+const botonCerrar= document.getElementById('carritoCerrar');
+botonCerrar.addEventListener('click',()=>{
+    modalContenedor.classList.toggle('modal-active');
+})
+
+
+const contenedorCarrito = document.getElementById('carrito-contenedor');
+
+
+
+function actualizarCarrito(){
+carrito.forEach((producto)=>{  
+
+contenedorCarrito.innerHTML = '';
+
+    const div = document.createElement('div');
+    div.classList.add('productoEnCarrito');
+    div.innerHTML = `
+        <p>${producto.nombre}</p>
+        <p>Precio:$${producto.precio}</p>
+        
+        <button class="boton-eliminar"><i class="bi bi-trash-fill"></i></button>
+        `
+        contenedorCarrito.appendChild(div)
+    })
+}
