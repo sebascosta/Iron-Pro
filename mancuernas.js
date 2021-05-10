@@ -1,23 +1,23 @@
 let lista= '';
-let carrito= [];
+
 
 class producto {
-    constructor (nombre, precio, stock, images){
+    constructor (id, nombre, precio, stock, images){
+        this.id = id
         this.nombre = nombre
         this.precio = precio
         this.stock = stock
         this.images = images
     }
 }
-
 const productList = [];
 
-    productList.push(productoUno = new producto ('Mancuerna 8kg', 1150, 10, 'img/hexa3.png'));
-    productList.push(productoDos = new producto ('Mancuerna 10kg', 2300, 10,'img/hexa3.png'))
-    productList.push(productoTres = new producto ('Mancuerna 20kg', 4600, 10, 'img/hexa2.png'))
-    productList.push(productoCuatro = new producto ('Mancuerna 5kg', 330, 10, 'img/hexa3.png'));
-    productList.push(productoCinco = new producto ('Mancuerna PVC xKg', 200, 10, 'img/hexapvc.png'))
-    productList.push(productoSeis = new producto ('Mancuerna 12kg', 2600, 10, 'img/hexa3.png'))
+    productList.push(productoUno = new producto (1,'Mancuerna 8kg', 1150, 10, 'img/hexa3.png'));
+    productList.push(productoDos = new producto (2,'Mancuerna 10kg', 2300, 10,'img/hexa3.png'))
+    productList.push(productoTres = new producto (3,'Mancuerna 20kg', 4600, 10, 'img/hexa2.png'))
+    productList.push(productoCuatro = new producto (4,'Mancuerna 5kg', 330, 10, 'img/hexa3.png'));
+    productList.push(productoCinco = new producto (5,'Mancuerna PVC xKg', 200, 10, 'img/hexapvc.png'))
+    productList.push(productoSeis = new producto (6,'Mancuerna 12kg', 2600, 10, 'img/hexa3.png'))
 
     for (let i = 0; i < productList.length; i++) {  
         lista += `<div class="container-card">
@@ -38,7 +38,7 @@ const productList = [];
                 <button>20</button>
             </div>
             <div class="purchase">
-                <button>Comprar</button>
+            <button onclick= "agregarItem(${productList[i].id})">Comprar</button>
             </div>
         </div>
     </div>
@@ -46,3 +46,23 @@ const productList = [];
     };
 
   document.getElementById('articulos').innerHTML = lista;
+
+  let carrito=[] 
+
+
+
+function agregarItem(id){
+    
+    let productoElegido = productList.find(el => el.id == id);
+    
+    if(productoElegido){
+        carrito.push(productoElegido)   
+    }else{ 
+        alert('Producto no disponible')
+    }
+    
+
+    localStorage.setItem('carrito', JSON.stringify(carrito))
+    console.log(carrito)
+
+}

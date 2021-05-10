@@ -2,7 +2,8 @@ let lista= '';
 
 
 class producto {
-    constructor (nombre, precio, stock, images){
+    constructor (id, nombre, precio, stock, images){
+        this.id = id
         this.nombre = nombre
         this.precio = precio
         this.stock = stock
@@ -12,12 +13,12 @@ class producto {
 
 const productList = [];
 
-    productList.push(productoUno = new producto ('Kettlebell 5kg', 1150, 10, 'img/KB-prueba.png'));
-    productList.push(productoDos = new producto ('Kettlebell 8kg', 2300, 10,'img/KB-prueba.png'))
-    productList.push(productoTres = new producto ('Kettlebell 10kg', 3600, 10, 'img/KB-prueba.png'))
-    productList.push(productoCuatro = new producto ('Kettlebell 12kg', 4330, 10, 'img/KB-prueba.png'));
-    productList.push(productoCinco = new producto ('Kettlebell PVC xKg', 200, 10,'img/KB-prueba.png'))
-    productList.push(productoSeis = new producto ('Kettlebell 20kg', 4600, 10,'img/KB-prueba.png'))
+    productList.push(productoUno = new producto (1,'Kettlebell 5kg', 1150, 10, 'img/KB-prueba.png'));
+    productList.push(productoDos = new producto (2, 'Kettlebell 8kg', 2300, 10,'img/KB-prueba.png'))
+    productList.push(productoTres = new producto (3,'Kettlebell 10kg', 3600, 10, 'img/KB-prueba.png'))
+    productList.push(productoCuatro = new producto (4,'Kettlebell 12kg', 4330, 10, 'img/KB-prueba.png'));
+    productList.push(productoCinco = new producto (5,'Kettlebell PVC xKg', 200, 10,'img/KB-prueba.png'))
+    productList.push(productoSeis = new producto (6,'Kettlebell 20kg', 4600, 10,'img/KB-prueba.png'))
 
 
     for (let i = 0; i < productList.length; i++) {  
@@ -39,7 +40,7 @@ const productList = [];
                 <button>20</button>
             </div>
             <div class="purchase">
-                <button>Comprar</button>
+                <button onclick= "agregarItem(${productList[i].id})">Comprar</button>
             </div>
         </div>
     </div>
@@ -47,3 +48,24 @@ const productList = [];
     };
 
   document.getElementById('articulos').innerHTML = lista;
+
+
+let carrito=[] 
+
+
+
+function agregarItem(id){
+    
+    let productoElegido = productList.find(el => el.id == id);
+    
+    if(productoElegido){
+        carrito.push(productoElegido)   
+    }else{ 
+        alert('Producto no disponible')
+    }
+    
+
+    localStorage.setItem('carrito', JSON.stringify(carrito))
+    console.log(carrito)
+
+}
