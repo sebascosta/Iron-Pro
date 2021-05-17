@@ -5,7 +5,7 @@
 }
 .img-us{
     position: relative;
-    left: 30%;
+    left: 35%;
     padding: 3%
 }
 
@@ -18,7 +18,7 @@
     color: white;    
 }
 .us-body{
-    background-image: url(https://images.pexels.com/photos/669584/pexels-photo-669584.jpeg?cs=srgb&dl=pexels-lukas-669584.jpg&fm=jpg);
+    background-image: url('../img/back-us-3.jpg');
     background-size:cover;    
 }
 .title-user{
@@ -74,4 +74,47 @@ background-color:#E71D36;
 color: white;
 border-radius: 10px;
 display: flex;
+}
+
+.modal-body{
+    display: flex;    
+    justify-content:center;
+    flex-wrap: wrap;
+    align-items: baseline;    
+    font-size: 3vh;
+    font-family: 'Heebo';
+}
+
+    
+.modal-title{
+    justify-content: center;
+}
+.p-cart{
+    margin-right: 6rem;
+}
+.bannerContainer{
+    display: flex;
+    justify-content: center;
+}
+.banner-promo{
+    height: 60vh;
+    width: 100%;
+}
+
+.contact{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-content: center;
+    text-align: center;
+    margin: 50px;
+    padding:10px;
+    box-shadow: 0px 13px 20px 6px rgba(191,177,177,0.51);
+    -webkit-box-shadow: 0px 13px 20px 6px rgba(191,177,177,0.51);
+    -moz-box-shadow: 0px 13px 20px 6px rgba(191,177,177,0.51);
+    border-radius: 15px;
+    background-image: url(../img/kettlebell-car.jpg);
+    background-size: cover;
+
+    
 }

@@ -67,7 +67,53 @@ function agregarItem(id){
 
 
 
-const modalContenedor = document.getElementsByClassName('modal-contenedor')[0];
+
+
+
+const contenedorCarrito = document.getElementById('contenido-cart');
+
+
+
+function actualizarCarrito(){
+
+    carrito.forEach((producto)=>{  
+
+    
+
+    const div = document.createElement('div');
+    div.classList.add('modal-body')
+    div.innerHTML = `
+        <p class="p-cart">${producto.nombre}</p>
+        <p class="p-cart">Precio:$${producto.precio}</p>        
+        <button class="boton-eliminar"><i class="bi bi-trash-fill"></i></button>
+        `
+        contenedorCarrito.appendChild(div)
+    })
+}
+/*
+<div class="modal-dialog">
+      <div class="modal-content">
+
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Carrito de compras</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+
+        <div class="modal-body">
+          ...
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+          <button type="button" class="btn btn-primary">Finalizar compra</button>
+        </div>
+      </div>
+    </div> 
+
+
+
+
+
+    const modalContenedor = document.getElementsByClassName('modal-contenedor')[0];
 const botonAbrir = document.getElementById('botonAbrir');
 botonAbrir.addEventListener('click',()=>{
    modalContenedor.classList.toggle('modal-active');
@@ -77,3 +123,5 @@ const botonCerrar= document.getElementById('carritoCerrar');
 botonCerrar.addEventListener('click',()=>{
     modalContenedor.classList.toggle('modal-active');
 })
+
+*/

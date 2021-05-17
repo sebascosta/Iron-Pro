@@ -1,42 +1,66 @@
-let desde = 0;
-let precio = 2000;
-let acumulador = ``;
-let precios = [575, 1150, 2300, 4600, 330, 200];
-let articulos = ['Discos 2.5kg', 'Discos 5kg', 'Discos 10kg', 'Discos 20kg', 'Discos Bumpers xKG', 'Discos PVC x KG'];
-let images = ['img/2kg.png', 'img/5kg.png', 'img/10kg.png', 'img/20kg.png', 'img/olimpicos.png', 'img/pvc.png' ];
-let totalDelCarrito = 0;
-let stock = 10;
+let lista= '';
 
-for (let i = 0; i < articulos.length; i++) {  
-  acumulador += `<div class="col-lg-4 col-md-6 mb-4">
-    <div class="card h-100" style= "box-shadow: 4px 5px 5px lightgrey; border-radius:4px">
-    <a href="#"><img class="card-img-top" src="${images[i]}" alt="Imagen producto"></a>
-    <div class="card-body">
-    <h4 class="card-title">
-    <a href="#"> ${articulos[i]} </a>
-    </h4>
-    <h5> $${precios[i]}</h5>
-    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur! Lorem ipsum dolor sit amet.</p>
-    </div>
-    <div class="card-footer" style= "text-align: center">
-    <button type="button" class="btn btn-primary"button onclick= "addToCart(${precios[i]})">Agregar al carrito</button>    
-      
-    </div>
-    </div>
-    </div>`;
+
+class producto {
+    constructor (id, nombre, precio, stock, images){
+        this.id = id
+        this.nombre = nombre
+        this.precio = precio
+        this.stock = stock
+        this.images = images
+    }
 }
+const productList = [];
 
-  document.getElementById('productos').innerHTML = acumulador;
-  
- function addToCart(precios){
-   if(stock= 0){
-     alert ('Lo sentimos, no tenemos stock en este momento!')
-   }else {
-   totalDelCarrito+= precios 
-  alert(`Se agregó el artículo al carrito. El total es: ${totalDelCarrito}.`)};
- };
+    productList.push(productoUno = new producto (1,'Mancuerna 8kg', 1150, 10, 'img/hexa3.png'));
+    productList.push(productoDos = new producto (2,'Mancuerna 10kg', 2300, 10,'img/hexa3.png'))
+    productList.push(productoTres = new producto (3,'Kettlebell 10kg', 3600, 10, 'img/KB-prueba.png'))
+    productList.push(productoCuatro = new producto (4,'Kettlebell 12kg', 4330, 10, 'img/KB-prueba.png'));
+    productList.push(productoCinco = new producto (5,'Disco fundición 10kg', 2200, 10, 'img/10kg.png'))
+    productList.push(productoSeis = new producto (6,'Mancuerna 12kg', 2600, 10, 'img/hexa3.png'))
 
- 
+    for (let i = 0; i < productList.length; i++) {  
+        lista += `<div class="container-card">
+        <div class="card">
+                <div class="sneaker">
+                    <div class="circle"></div>
+                    <img src="${productList[i].images}" style="width:7rem" alt="kb">
+                </div>
+                    
+            <div class="info">
+                <h1 class="title">${productList[i].nombre}</h1>    
+                    <h3>MANCUERNA RUSA KETTLEBELL GENETIC PRO</h3>
+            </div>
+            
+            <div class="purchase">
+            <button onclick= "agregarItem(${productList[i].id})">Comprar</button>
+            </div>
+        </div>
+    </div>
+    `
+    };
+
+  document.getElementById('productos').innerHTML = lista;
+
+  let carrito=[] 
+
+
+
+function agregarItem(id){
+    
+    let productoElegido = productList.find(el => el.id == id);
+    
+    if(productoElegido){
+        carrito.push(productoElegido)   
+    }else{ 
+        alert('Producto no disponible')
+    }
+    
+
+    localStorage.setItem('carrito', JSON.stringify(carrito))
+    console.log(carrito)
+
+}
  ////////////////////////////////////////////////////////////////////////////////////////////////
  
  //Simulador de cuotas
@@ -98,3 +122,48 @@ for (let i = 0; i < articulos.length; i++) {
 
  //alert('Bienvenido/a '+ usuario);
  localStorage.setItem('usuario', usuario);*/
+
+
+
+
+
+ /////////////////////////////////////Ejercicio JQuery///////////////////////////////////////////////
+
+
+
+const botonEnviar = $('#botonContacto');
+const formDiv = $('#form-enviado');
+
+
+botonEnviar.click((event)=>{
+  event.preventDefault();
+  
+  formDiv.append(
+    `
+      
+        <div class="modal-dialog">
+          <div class="modal-content"style="background-color: lightskyblue">
+            <div class="modal-header">
+              <h4 class="modal-title">Contacto</h4>            
+            </div>
+            <div class="modal-body">
+              <p>El formulario se envió correctamente</p>
+            </div>
+            <div class="modal-footer">
+              <button id="cerrarBtn"type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
+            </div>
+          </div>
+        </div>
+     
+  `
+  
+  )
+  
+  const botonCerrar = $('#cerrarBtn');
+  botonCerrar.click(() =>{
+   $('#form-enviado').toggle();
+  
+  })
+})
+
+///////////////////////////////////////////////////////////
