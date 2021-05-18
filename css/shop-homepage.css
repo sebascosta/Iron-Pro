@@ -33,8 +33,12 @@ body {
 .art-head{
   justify-content: center;
   display: flex;
-
+  margin: 8vh;
+  font-family: 'Heebo';
+  font-size: 50px;
+  color: darkcyan;
 }
+
 
 .bi bi-chat-square-dots{
 color: white;
