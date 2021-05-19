@@ -118,3 +118,40 @@ display: flex;
 
     
 }
+
+
+#promo{
+    left: 38%;
+    height: 6vh;
+    width: 50vh;    
+    color: black;
+    font-size: 13px;
+    display: flex;
+    border-radius: 15px;
+    padding: 15px;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    font-family: system-ui;
+    font-weight: 600;    
+    cursor: pointer;
+}
+
+#cuponDiv{
+    left: 38%;
+    height: 30vh;
+    width: 50vh;  
+   
+    display: flex;
+    
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    
+
+}
+
+.cuponImage{
+    height: 30vh;
+    width: 50vh;
+}

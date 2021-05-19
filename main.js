@@ -127,7 +127,7 @@ function agregarItem(id){
 
 
 
- /////////////////////////////////////Ejercicio JQuery////////////////////////////////
+ /////////////////////////////////////Ejercicio JQuery///////////////////////////////////////////////
 
 
 
@@ -166,4 +166,26 @@ botonEnviar.click((event)=>{
   })
 })
 
-////////////////////////////////////////////////////////////
+
+
+//////////////////////////////////Ejercicio de animaciones JQuery//////////////////////////
+
+
+
+const cerrarPromo = $('#buttonPromo');
+
+const promoDiv = $('#promo');
+
+const buttonCupon = $('#buttonCupon');
+
+const cuponDiv = $('#cuponDiv');
+
+
+$('#buttonPromo').on('click',()=>{
+  $('#promo').hide( function(){
+    $(cuponDiv).fadeIn(2000)
+  })
+})
+
+
+

@@ -158,9 +158,7 @@ const contenedorCarrito = document.getElementById('contenido-cart');
 
 function actualizarCarrito(){
 
-    carrito.forEach((producto)=>{  
-
-    
+    carrito.forEach((producto)=>{      
 
     const div = document.createElement('div');
     div.classList.add('modal-body')
@@ -194,8 +192,8 @@ function actualizarCarrito(){
 
 
 
-/*
-FUNCION DE ACTUALIZAR EL CARRITO CON MODAL DE CONRADO y botones de abrir y cerrar modal
+
+//FUNCION DE ACTUALIZAR EL CARRITO CON MODAL DE CONRADO y botones de abrir y cerrar modal
 
 function actualizarCarrito(){
     carrito.forEach((producto)=>{  
@@ -214,8 +212,7 @@ function actualizarCarrito(){
         })
     }
 
-    */
-
+   
     /*
 const modalContenedor = document.getElementsByClassName('modal-content')[0];
 const botonAbrir = document.getElementById('botonAbrir');
