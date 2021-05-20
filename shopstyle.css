@@ -1,0 +1,7 @@
+#container-card{width: 30vh;
+    display: flex;
+    justify-content: center;    
+    justify-content: space-evenly;
+    margin: 3rem;
+    align-content: space-evenly;
+}    

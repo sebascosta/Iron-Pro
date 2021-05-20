@@ -81,8 +81,10 @@ display: flex;
     justify-content:center;
     flex-wrap: wrap;
     align-items: baseline;    
-    font-size: 3vh;
-    font-family: 'Heebo';
+    font-size: 2vh;
+    font-family: 'Heebo', sans-serif;
+    background-color: #16c47b;
+    padding-right: 10px;
 }
 
     

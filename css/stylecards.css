@@ -161,4 +161,5 @@ button.active{
 .productoEnCarrito{
   display: flex;
   justify-content: space-between;
+  width: 90%;
 }

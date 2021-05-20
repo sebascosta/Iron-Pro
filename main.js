@@ -64,7 +64,7 @@ function agregarItem(id){
  ////////////////////////////////////////////////////////////////////////////////////////////////
  
  //Simulador de cuotas
- 
+ /*
  function calcularCuotas(valor, cuota){
    
    let interes = 0;
@@ -79,7 +79,7 @@ function agregarItem(id){
     totalInteres = (valor * interes)
     alert( "El precio total en esas cuotas es " + totalInteres);
   };
-
+*/
 
   //let valor = parseInt(prompt('Ingrese monto del producto'));
   //let cuota = parseInt(prompt('Ingrese cantidad de cuotas'));
@@ -103,7 +103,7 @@ function agregarItem(id){
 
 
 
- console.log(document.body);
+ //console.log(document.body);
 
 
  /////////////////////////////////Local Storage Ingreso de usuario/////////////////////////////////////

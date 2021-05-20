@@ -1,5 +1,6 @@
 let lista = '';
 
+// FUNCION CONSTRUCTORA DE PRODUCTOS//
 
 class producto {
     constructor (id,tipo, nombre, precio, stock, images) {
@@ -12,8 +13,6 @@ class producto {
         
         
     }};
-    
-
 
     const productoDos = new producto (2,"kb",'Kettlebell 8kg', 1150, 10, 'img/KB-prueba.png');
     const productoTres = new producto (3,"kb",'Kettlebell 10kg', 2300, 10,'img/KB-prueba.png');
@@ -31,63 +30,9 @@ class producto {
     let productList = [productoDos, productoTres, productoCuatro, productoCinco,  productoSeis, productoSiete, productoOcho,productoNueve, productoDiez,productoOnce, productoDoce, productoTrece ]; 
             
     //let productosEnJson = JSON.stringify(productList)
-       
+//////////////////////////Funcion para mostrar cards////////////////////////
 
-
-
-////////////////////Creacion de productos para el filtro select///////////////////////////////
-
-    const productLista = [
-        {"id":1,"nombre":"KB","precio":"$7426.27","stock":71},
-        {"id":1,"nombre":"KB","precio":"$7426.27","stock":71},
-        {"id":2,"nombre":"KB","precio":"$3021.99","stock":25},
-        {"id":3,"nombre":"Discos","precio":"$6275.41","stock":90},
-        {"id":4,"nombre":"Discos","precio":"$1444.96","stock":64},
-        {"id":5,"nombre":"Discos","precio":"$1021.65","stock":30},
-        {"id":6,"nombre":"barras","precio":"$7899.90","stock":29},
-        {"id":7,"nombre":"barras","precio":"$8013.99","stock":93},
-        {"id":8,"nombre":"Barras","precio":"$5100.32","stock":100},
-        {"id":9,"nombre":"mancuernas","precio":"$863.62","stock":75},
-        {"id":10,"nombre":"accesorios","precio":"$7542.19","stock":51}
-    ]
-//////////////////////////////////////////////////////////////////////////////////////////////////////
-mostrarProductos(productList);
-/*
-function mostrarProductos(array){
-
-array.forEach((producto)=>{
-const div= document.createElement('div');
-
-div.innerHTML = `<div class="container-card">
-        <div class="card">
-                <div class="sneaker">
-                    <div class="circle"></div>
-                    <img src="${productList.images}" alt="kb">
-                </div>
-                    
-            <div class="info">
-                <h1 class="title">${productList.nombre}</h1>    
-                    <h3>MANCUERNA RUSA KETTLEBELL GENETIC PRO</h3>
-            </div>
-            
-            <div class="purchase">
-            <button onclick= "agregarItem(${productList.id})">Comprar</button>
-            </div>
-        </div>
-        </div>
-        `
-articulos.appendChild(div)
-
-})
-}
-*/
-
-document.getElementById('articulos').innerHTML = lista;
-
-
-
-
-
+mostrarProductos()
 
 function mostrarProductos(){
     for (let i = 0; i < productList.length; i++) {  
@@ -115,8 +60,6 @@ document.getElementById('articulos').innerHTML = lista;
 
 
 //Se toma del dom el select y se asignan values para funcion filtrar del select//
-
-
   const selectFiltro = document.getElementById('opciones');
 
   function filtrar(){
@@ -125,23 +68,18 @@ document.getElementById('articulos').innerHTML = lista;
         console.log(productList)
     }else{
         console.log(productList.filter( el => el.tipo == filtro))
-    }
-    
-   }
+    }    
+   };
    
-  
-  
-
-
+  //////////////////////////////////////////////////////////////////////////////////////
   let carrito=[];
 
-  function agregarItem(id){
-    
+  function agregarItem(id){    
     let productoElegido = productList.find(el => el.id == id);
     
     if(productoElegido){
         carrito.push(productoElegido)
-        alert('Se agregó el producto al carrito')   
+         
     }else{ 
         alert('Producto no disponible')
     }
@@ -151,10 +89,8 @@ document.getElementById('articulos').innerHTML = lista;
     actualizarCarrito();
 }  
 
-
+////////////////////////////////////////////////////////////////////////////////////////
 const contenedorCarrito = document.getElementById('contenido-cart');
-
-
 
 function actualizarCarrito(){
 
@@ -170,26 +106,47 @@ function actualizarCarrito(){
         contenedorCarrito.appendChild(div)
     })
 }
-/*
-<div class="modal-dialog">
-      <div class="modal-content">
 
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Carrito de compras</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+////////////////////////////////////////Creador de div para productos/////////////////////////////////////
+/* 
+const contenedorProductos = document.getElementById('articulos')
+
+mostrarProductos(productList);
+
+
+function mostrarProductos(array){
+
+    array.forEach((producto)=>{
+
+    const div= document.createElement('div');
+
+    div.innerHTML = `<div class="container-card">
+        <div class="card">
+                <div class="sneaker">
+                    <div class="circle"></div>
+                    <img src="${productList[0].images}" alt="kb">
+                </div>
+                    
+            <div class="info">
+                <h1 class="title">${productList[2].nombre}</h1>    
+                    <h3>MANCUERNA RUSA KETTLEBELL GENETIC PRO</h3>
+            </div>
+            
+            <div class="purchase">
+            <button onclick= "agregarItem(${productList[0].id})">Comprar</button>
+            </div>
         </div>
-        
-        <div class="modal-body">
-          ...
         </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-          <button type="button" class="btn btn-primary">Finalizar compra</button>
-        </div>
-      </div>
-    </div> 
+        `
+    articulos.appendChild(div)
+
+})
+}
+
+
 */
 
+//document.getElementById('articulos').innerHTML = lista;
 
 
 
@@ -212,7 +169,9 @@ function actualizarCarrito(){
         })
     }
 
-   
+  
+
+
     /*
 const modalContenedor = document.getElementsByClassName('modal-content')[0];
 const botonAbrir = document.getElementById('botonAbrir');
@@ -225,3 +184,41 @@ botonCerrar.addEventListener('click',()=>{
     modalContenedor.classList.toggle('modal-active');
 })
 */
+
+/*
+<div class="modal-dialog">
+      <div class="modal-content">
+
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Carrito de compras</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        
+        <div class="modal-body">
+          ...
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+          <button type="button" class="btn btn-primary">Finalizar compra</button>
+        </div>
+      </div>
+    </div> 
+*/
+
+////////////////////Creacion de productos para el filtro select///////////////////////////////
+/*
+    const productLista = [
+        {"id":1,"nombre":"KB","precio":"$7426.27","stock":71},
+        {"id":1,"nombre":"KB","precio":"$7426.27","stock":71},
+        {"id":2,"nombre":"KB","precio":"$3021.99","stock":25},
+        {"id":3,"nombre":"Discos","precio":"$6275.41","stock":90},
+        {"id":4,"nombre":"Discos","precio":"$1444.96","stock":64},
+        {"id":5,"nombre":"Discos","precio":"$1021.65","stock":30},
+        {"id":6,"nombre":"barras","precio":"$7899.90","stock":29},
+        {"id":7,"nombre":"barras","precio":"$8013.99","stock":93},
+        {"id":8,"nombre":"Barras","precio":"$5100.32","stock":100},
+        {"id":9,"nombre":"mancuernas","precio":"$863.62","stock":75},
+        {"id":10,"nombre":"accesorios","precio":"$7542.19","stock":51}
+    ]*/
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+
