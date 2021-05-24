@@ -17,7 +17,7 @@ const productList = [];
     productList.push(productoDos = new producto (2, 'Kettlebell 8kg', 2300, 10,'img/KB-prueba.png'))
     productList.push(productoTres = new producto (3,'Kettlebell 10kg', 3600, 10, 'img/KB-prueba.png'))
     productList.push(productoCuatro = new producto (4,'Kettlebell 12kg', 4330, 10, 'img/KB-prueba.png'));
-    productList.push(productoCinco = new producto (5,'Kettlebell PVC xKg', 200, 10,'img/KB-prueba.png'))
+    productList.push(productoCinco = new producto (5,'Kettlebell PVC xKg', 200, 10,'img/KBpvc.png'))
     productList.push(productoSeis = new producto (6,'Kettlebell 20kg', 4600, 10,'img/KB-prueba.png'))
 
 

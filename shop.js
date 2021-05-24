@@ -1,4 +1,31 @@
-let lista = '';
+let productList = [];
+/*
+fetch('./productos.json')
+.then(res => res.json())
+.then(data =>{
+    productList = data
+    mostrarProductos(productList)
+})
+*/
+
+
+const obtenerProductos = async () => {
+const res = await fetch('./productos.json');
+console.log(res)
+
+const data = await res.json();
+console.log(data)
+
+productList = data;
+console.log(productList)
+
+
+mostrarProductos(productList)
+console.log(mostrarProductos())
+} 
+
+
+obtenerProductos()
 
 // FUNCION CONSTRUCTORA DE PRODUCTOS//
 
@@ -27,36 +54,41 @@ class producto {
     const productoDoce = new producto (12,"discos",'Disco fundición 10kg', 2200, 10, 'img/10kg.png');
     const productoTrece = new producto (13,"discos",'Disco fundición 10kg', 2200, 10, 'img/10kg.png');
 
-    let productList = [productoDos, productoTres, productoCuatro, productoCinco,  productoSeis, productoSiete, productoOcho,productoNueve, productoDiez,productoOnce, productoDoce, productoTrece ]; 
+    //let productList = [productoDos, productoTres, productoCuatro, productoCinco,  productoSeis, productoSiete, productoOcho,productoNueve, productoDiez,productoOnce, productoDoce, productoTrece ]; 
             
     //let productosEnJson = JSON.stringify(productList)
 //////////////////////////Funcion para mostrar cards////////////////////////
 
-mostrarProductos()
+//mostrarProductos(productList)
 
-function mostrarProductos(){
-    for (let i = 0; i < productList.length; i++) {  
+function mostrarProductos(array){
+    let lista = '';
+
+
+    for (let i = 0; i < array.length; i++) {  
         lista += `<div class="container-card">
         <div class="card">
                 <div class="sneaker">
                     <div class="circle"></div>
-                    <img src="${productList[i].images}" alt="kb">
+                    <img src="${array[i].images}" alt="kb">
                 </div>
                     
             <div class="info">
-                <h1 class="title">${productList[i].nombre}</h1>    
-                    <h3>MANCUERNA RUSA KETTLEBELL GENETIC PRO</h3>
+                <h1 class="title">${array[i].nombre}</h1>    
+                    <h3>${array[i].description}</h3>
+                    <h4 style= "text-align: center; color:red">$${array[i].precio}</h4>
             </div>
             
             <div class="purchase">
-            <button onclick= "agregarItem(${productList[i].id})">Comprar</button>
+            <button onclick= "agregarItem(${array[i].id})">Comprar</button>
             </div>
         </div>
     </div>
     `
     };
+    document.getElementById('articulos').innerHTML = lista;
 }
-document.getElementById('articulos').innerHTML = lista;
+
 
 
 //Se toma del dom el select y se asignan values para funcion filtrar del select//
@@ -65,13 +97,17 @@ document.getElementById('articulos').innerHTML = lista;
   function filtrar(){
     let filtro = selectFiltro.value;   
     if(filtro == "all"){
-        console.log(productList)
+        mostrarProductos(productList)
     }else{
-        console.log(productList.filter( el => el.tipo == filtro))
+        mostrarProductos((productList.filter( el => el.tipo == filtro)))
+        
     }    
+    
    };
-   
-  //////////////////////////////////////////////////////////////////////////////////////
+   ///
+  ///////////////////////////////////Agregar Items al carrito//////////////////////////////////////////
+
+  
   let carrito=[];
 
   function agregarItem(id){    
@@ -84,26 +120,32 @@ document.getElementById('articulos').innerHTML = lista;
         alert('Producto no disponible')
     }
     localStorage.setItem('carrito', JSON.stringify(carrito))
-    console.log(carrito)
+    console.log(carrito);
 
     actualizarCarrito();
 }  
 
 ////////////////////////////////////////////////////////////////////////////////////////
+
+
 const contenedorCarrito = document.getElementById('contenido-cart');
 
+console.log(contenedorCarrito)
+
 function actualizarCarrito(){
+contenedorCarrito.innerHTML = '';
 
     carrito.forEach((producto)=>{      
 
-    const div = document.createElement('div');
-    div.classList.add('modal-body')
-    div.innerHTML = `
-        <p class="p-cart">${producto.nombre}</p>
-        <p class="p-cart">Precio:$${producto.precio}</p>        
-        <button class="boton-eliminar"><i class="bi bi-trash-fill"></i></button>
-        `
-        contenedorCarrito.appendChild(div)
+        const div = document.createElement('div')
+        div.classList.add('productoEnCarrito')
+        div.innerHTML = `        
+            <p class="p-cart">${producto.nombre}</p>
+            <p class="p-cart">Precio:$${producto.precio}</p>        
+            <button class="boton-eliminar"><i class="bi bi-trash-fill"></i></button>
+            
+            `
+            contenedorCarrito.appendChild(div)
     })
 }
 

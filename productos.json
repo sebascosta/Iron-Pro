@@ -1,0 +1,189 @@
+[   
+    {    
+        "id": 2,
+        "tipo":"kb" ,
+        "nombre": "Kettlebell 8kg",
+        "precio": 1150,
+        "stock":10,
+        "images": "img/KB-prueba.png",
+        "description": "MANCUERNA RUSA KETTLEBELL GENETIC PRO"
+    },
+    
+     {
+        "id": 3,
+        "tipo":"kb" ,
+        "nombre": "Kettlebell 10kg",
+        "precio": 2300,
+        "stock":10,
+        "images": "img/KB-prueba.png",
+        "description": "MANCUERNA RUSA KETTLEBELL GENETIC PRO"
+    
+    },
+    
+    {
+        "id": 4,
+        "tipo":"kb" ,
+        "nombre": "Kettlebell 20kg",
+        "precio": 4600,
+        "stock":10,
+        "images": "img/KB-prueba.png",
+        "description": "MANCUERNA RUSA KETTLEBELL GENETIC PRO"
+    
+    
+    },
+    
+     {
+        "id": 5,
+        "tipo": "kb",
+        "nombre": "Kettlebell 15kg",
+        "precio": 1150,
+        "stock":10,
+        "images": "img/KB-prueba.png",
+        "description": "MANCUERNA RUSA KETTLEBELL GENETIC PRO"
+    },
+    
+     {
+        "id": 6,
+        "tipo":"kb" ,
+        "nombre": "Kettlebell PVC xKg",
+        "precio": 200,
+        "stock":10,
+        "images": "img/KBpvc.png",
+        "description": "MANCUERNA PVC PRO STORE"
+    
+    
+    },
+    {
+        "id": 7,
+        "tipo": "kb",
+        "nombre": "Kettlebell 12kg",
+        "precio": 2800,
+        "stock":10,
+        "images": "img/KB-prueba.png",
+        "description": "MANCUERNA RUSA KETTLEBELL GENETIC PRO"
+    
+    },
+    {
+        "id": 8,
+        "tipo": "mancuernas",
+        "nombre": "Mancuerna 10kg",
+        "precio": 1150,
+        "stock":10,
+        "images": "img/hexa3.png",
+        "description": "MANCUERNA IRON PRO"
+    
+    },
+
+    {
+        "id": 9,
+        "tipo": "mancuernas",
+        "nombre": "Mancuerna 12kg",
+        "precio": 2300,
+        "stock":10,
+        "images": "img/hexa.png",
+        "description": "MANCUERNA IRON PRO"
+    
+    },
+    {
+        "id": 10,
+        "tipo": "mancuernas",
+        "nombre": "Mancuerna 20kg",
+        "precio": 4600,
+        "stock":10,
+        "images": "img/hexa2.png",
+        "description": "MANCUERNA IRON PRO"
+    
+    },
+    {
+        "id": 11,
+        "tipo":"discos" ,
+        "nombre": "Disco 5KG",
+        "precio": 2200,
+        "stock":10,
+        "images": "img/5kg.png",
+        "description": "Disco de acero inoxidable"
+    
+    },
+    {
+        "id": 12,
+        "tipo":"discos" ,
+        "nombre": "Disco 5KG",
+        "precio": 2200,
+        "stock":10,
+        "images": "img/5kg.png",
+        "description": "Disco de acero inoxidable"
+    
+    },
+    {
+        "id": 13,
+        "tipo":"discos" ,
+        "nombre": "Disco 10kg",
+        "precio": 2200,
+        "stock":10,
+        "images": "img/10kg.png",
+        "description": "Disco de acero inoxidable"
+    
+    },
+    
+    {
+        "id": 14,
+        "tipo":"discos" ,
+        "nombre": "Disco 10kg",
+        "precio": 2200,
+        "stock":10,
+        "images": "img/10kg.png",
+        "description": "Disco de acero inoxidable"
+    
+    },
+   
+    {
+        "id": 16,
+        "tipo":"discos" ,
+        "nombre": "Disco 20kg",
+        "precio": 2200,
+        "stock":10,
+        "images": "img/20kg.png",
+        "description": "Disco de acero inoxidable"
+    
+    },
+    {
+        "id": 17,
+        "tipo":"discos" ,
+        "nombre": "Disco 20kg",
+        "precio": 2200,
+        "stock":10,
+        "images": "img/20kg.png",
+        "description": "Disco de acero inoxidable"
+    
+    },
+     {
+        "id": 18,
+        "tipo":"barras" ,
+        "nombre": "Barra 1,5m",
+        "precio": 2200,
+        "stock":10,
+        "images": "img/barra2.png",
+        "description": "Barra de acero inoxidable"
+    
+    },
+    {
+        "id": 19,
+        "tipo":"barras" ,
+        "nombre": "Barra 1,8m",
+        "precio": 2200,
+        "stock":10,
+        "images": "img/barra2.png",
+        "description": "Barra de acero inoxidable"
+    
+    },
+    {
+        "id": 20,
+        "tipo":"barras" ,
+        "nombre": "Barra 2,2m",
+        "precio": 2200,
+        "stock":10,
+        "images": "img/barra2.png",
+        "description": "Barra de acero inoxidable"
+    }
+      
+]
