@@ -7,7 +7,7 @@ fetch('./productos.json')
     mostrarProductos(productList)
 })
 */
-
+//Fetch con json de productos//
 
 const obtenerProductos = async () => {
 const res = await fetch('./productos.json');
@@ -57,9 +57,9 @@ class producto {
     //let productList = [productoDos, productoTres, productoCuatro, productoCinco,  productoSeis, productoSiete, productoOcho,productoNueve, productoDiez,productoOnce, productoDoce, productoTrece ]; 
             
     //let productosEnJson = JSON.stringify(productList)
+
 //////////////////////////Funcion para mostrar cards////////////////////////
 
-//mostrarProductos(productList)
 
 function mostrarProductos(array){
     let lista = '';
@@ -107,48 +107,51 @@ function mostrarProductos(array){
    ///
   ///////////////////////////////////Agregar Items al carrito//////////////////////////////////////////
 
+  let carrito=[] 
+
+
+
+  function agregarItem(id){
+      
+      let productoElegido = productList.find(el => el.id == id);
+      
+      if(productoElegido){
+          carrito.push(productoElegido)   
+      }else{ 
+          alert('Producto no disponible')
+      }
+      
   
-  let carrito=[];
-
-  function agregarItem(id){    
-    let productoElegido = productList.find(el => el.id == id);
-    
-    if(productoElegido){
-        carrito.push(productoElegido)
-         
-    }else{ 
-        alert('Producto no disponible')
-    }
-    localStorage.setItem('carrito', JSON.stringify(carrito))
-    console.log(carrito);
-
-    actualizarCarrito();
-}  
+      localStorage.setItem('carrito', JSON.stringify(carrito))
+      console.log(carrito)
+  
+      actualizarCarrito();
+  
+  }
 
 ////////////////////////////////////////////////////////////////////////////////////////
 
 
 const contenedorCarrito = document.getElementById('contenido-cart');
 
-console.log(contenedorCarrito)
-
-function actualizarCarrito(){
-contenedorCarrito.innerHTML = '';
-
-    carrito.forEach((producto)=>{      
-
-        const div = document.createElement('div')
-        div.classList.add('productoEnCarrito')
-        div.innerHTML = `        
-            <p class="p-cart">${producto.nombre}</p>
-            <p class="p-cart">Precio:$${producto.precio}</p>        
-            <button class="boton-eliminar"><i class="bi bi-trash-fill"></i></button>
-            
-            `
-            contenedorCarrito.appendChild(div)
-    })
-}
-
+ function actualizarCarrito(){
+  contenedorCarrito.innerHTML = '';
+  
+      carrito.forEach((producto)=>{      
+          
+          const div = document.createElement('div')
+          div.classList.add('productoEnCarrito')
+          div.innerHTML = `        
+              <p class="p-cart">${producto.nombre}</p>
+              <p class="p-cart">Precio:$${producto.precio}</p>        
+              <button class="boton-eliminar"><i class="bi bi-trash-fill"></i></button>
+              
+              `
+              contenedorCarrito.appendChild(div)
+              console.log("se agrego")
+      })
+  }
+  
 ////////////////////////////////////////Creador de div para productos/////////////////////////////////////
 /* 
 const contenedorProductos = document.getElementById('articulos')

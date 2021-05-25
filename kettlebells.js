@@ -63,8 +63,9 @@ function agregarItem(id){
     localStorage.setItem('carrito', JSON.stringify(carrito))
     console.log(carrito)
 
-}
+    actualizarCarrito();
 
+}
 
 
 
@@ -72,24 +73,24 @@ function agregarItem(id){
 
 const contenedorCarrito = document.getElementById('contenido-cart');
 
-
-
-function actualizarCarrito(){
-
-    carrito.forEach((producto)=>{  
-
-    
-
-    const div = document.createElement('div');
-    div.classList.add('modal-body')
-    div.innerHTML = `
-        <p class="p-cart">${producto.nombre}</p>
-        <p class="p-cart">Precio:$${producto.precio}</p>        
-        <button class="boton-eliminar"><i class="bi bi-trash-fill"></i></button>
-        `
-        contenedorCarrito.appendChild(div)
-    })
-}
+ function actualizarCarrito(){
+     
+  contenedorCarrito.innerHTML = '';
+  
+      carrito.forEach((producto)=>{      
+          
+          const div = document.createElement('div')
+          div.classList.add('productoEnCarrito')
+          div.innerHTML = `        
+              <p class="p-cart">${producto.nombre}</p>
+              <p class="p-cart">Precio:$${producto.precio}</p>        
+              <button class="boton-eliminar"><i class="bi bi-trash-fill"></i></button>
+              
+              `
+              contenedorCarrito.appendChild(div)
+              console.log("se agrego")
+      })
+  }
 /*
 <div class="modal-dialog">
       <div class="modal-content">

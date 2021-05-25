@@ -42,27 +42,57 @@ const productList = [];
 
   document.getElementById('productos').innerHTML = lista;
 
+
+
+
   let carrito=[] 
 
 
 
-function agregarItem(id){
-    
-    let productoElegido = productList.find(el => el.id == id);
-    
-    if(productoElegido){
-        carrito.push(productoElegido)   
-    }else{ 
-        alert('Producto no disponible')
-    }
-    
-
-    localStorage.setItem('carrito', JSON.stringify(carrito))
-    console.log(carrito)
-
-}
+  function agregarItem(id){
+      
+      let productoElegido = productList.find(el => el.id == id);
+      
+      if(productoElegido){
+          carrito.push(productoElegido)   
+      }else{ 
+          alert('Producto no disponible')
+      }
+      
+  
+      localStorage.setItem('carrito', JSON.stringify(carrito))
+      console.log(carrito)
+  
+      actualizarCarrito();
+  
+  }
  ////////////////////////////////////////////////////////////////////////////////////////////////
  
+ const contenedorCarrito = document.getElementById('contenido-cart');
+
+ function actualizarCarrito(){
+     
+  contenedorCarrito.innerHTML = '';
+  
+      carrito.forEach((producto)=>{      
+          
+          const div = document.createElement('div')
+          div.classList.add('productoEnCarrito')
+          div.innerHTML = `        
+              <p class="p-cart">${producto.nombre}</p>
+              <p class="p-cart">Precio:$${producto.precio}</p>        
+              <button class="boton-eliminar"><i class="bi bi-trash-fill"></i></button>
+              
+              `
+              contenedorCarrito.appendChild(div)
+              console.log("se agrego")
+      })
+  }
+
+
+
+
+
  //Simulador de cuotas
  /*
  function calcularCuotas(valor, cuota){

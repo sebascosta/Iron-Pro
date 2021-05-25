@@ -12,12 +12,12 @@ class producto {
 }
 const productList = [];
 
-    productList.push(productoUno = new producto (5,'Disco fundición 10kg', 2200, 10, 'img/10kg.png'));
-    productList.push(productoDos = new producto (5,'Disco fundición 10kg', 2200, 10, 'img/10kg.png'))
-    productList.push(productoTres = new producto (5,'Disco fundición 10kg', 2200, 10, 'img/10kg.png'))
-    productList.push(productoCuatro = new producto (5,'Disco fundición 10kg', 2200, 10, 'img/10kg.png'));
-    productList.push(productoCinco = new producto (5,'Disco fundición 10kg', 2200, 10, 'img/10kg.png'))
-    productList.push(productoSeis = new producto (5,'Disco fundición 10kg', 2200, 10, 'img/10kg.png'))
+    productList.push(productoUno = new producto (5,"Barra 1,5m", 2200, 10, "img/barra2.png"));
+    productList.push(productoDos = new producto (5,"Barra 1,8m", 2200, 10, "img/barra2.png"))
+    productList.push(productoTres = new producto (5,"Barra 2,2m", 2200, 10, "img/barra2.png"))
+    productList.push(productoCuatro = new producto (5,"Barra 1,5m", 2200, 10, "img/barra2.png"));
+    productList.push(productoCinco = new producto (5,"Barra 1,8m", 2200, 10, "img/barra2.png"))
+    productList.push(productoSeis = new producto (5,"Barra 2,2m", 2200, 10, "img/barra2.png"))
 
     for (let i = 0; i < productList.length; i++) {  
         lista += `<div class="container-card">
@@ -29,7 +29,7 @@ const productList = [];
                     
             <div class="info">
                 <h1 class="title">${productList[i].nombre}</h1>    
-                    <h3>MANCUERNA RUSA KETTLEBELL GENETIC PRO</h3>
+                <h3>Barra de acero inoxidable</h3>
             </div>
             
             <div class="purchase">
@@ -59,10 +59,29 @@ function agregarItem(id){
 
     localStorage.setItem('carrito', JSON.stringify(carrito))
     console.log(carrito)
-
+    actualizarCarrito()
 }
  ////////////////////////////////////////////////////////////////////////////////////////////////
- 
+ const contenedorCarrito = document.getElementById('contenido-cart');
+
+ function actualizarCarrito(){
+     
+  contenedorCarrito.innerHTML = '';
+  
+      carrito.forEach((producto)=>{      
+          
+          const div = document.createElement('div')
+          div.classList.add('productoEnCarrito')
+          div.innerHTML = `        
+              <p class="p-cart">${producto.nombre}</p>
+              <p class="p-cart">Precio:$${producto.precio}</p>        
+              <button class="boton-eliminar"><i class="bi bi-trash-fill"></i></button>
+              
+              `
+              contenedorCarrito.appendChild(div)
+              console.log("se agrego")
+      })
+  }
  //Simulador de cuotas
  /*
  function calcularCuotas(valor, cuota){
