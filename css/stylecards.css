@@ -161,5 +161,28 @@ button.active{
 .productoEnCarrito{
   display: flex;
   justify-content: space-between;
-  width: 90%;
+  width: 100%;
+  padding: 20px 0;
+}
+
+#container-card{width: 30vh;
+  display: flex;
+  justify-content: center;    
+  justify-content: space-evenly;
+  margin: 3rem;
+  align-content: space-evenly;
+}    
+
+#precioTotal{
+  font-family: 'Abel', sans-serif;
+  font-weight: bold;
+}
+.total{
+  position: relative;
+  right: 125px;
+  font-family: 'Abel', sans-serif;
+  font-weight: bold;
+}
+#contadorCarrito{
+  padding-left: 5px;
 }

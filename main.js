@@ -1,5 +1,6 @@
 let lista= '';
-
+const contadorCarrito = document.getElementById('contadorCarrito');
+const precioTotal = document.getElementById('precioTotal');
 
 class producto {
     constructor (id, nombre, precio, stock, images){
@@ -75,15 +76,33 @@ function agregarItem(id){
           const div = document.createElement('div')
           div.classList.add('productoEnCarrito')
           div.innerHTML = `        
-              <p class="p-cart">${producto.nombre}</p>
-              <p class="p-cart">Precio:$${producto.precio}</p>        
-              <button class="boton-eliminar"><i class="bi bi-trash-fill"></i></button>
+          <div><img src="${producto.images}" style="width: 50px;
+          margin-right: 20px;"></div>   
+          <p class="p-cart">${producto.nombre}</p>
+          <p class="p-cart">Precio:$${producto.precio}</p>        
+          <button class="boton-eliminar" onclick = eliminarProducto(${producto.id}) style = "width: 20px;
+          background-color: indianred;
+          color: white;"><i class="bi bi-trash-fill"></i></button>     
               
               `
               contenedorCarrito.appendChild(div)
               console.log("se agrego")
       })
+    contadorCarrito.innerText = carrito.length;
+    precioTotal.innerText = carrito.reduce((acc, el)=>acc+= el.precio, 0)
   }
+  
+  ////////Eliminar producto del carrito////
+
+function eliminarProducto(id){
+  let productoEliminado = carrito.find(el => el.id == id)
+  let indice = carrito.indexOf(productoEliminado)
+  carrito.splice(indice,1)
+
+  actualizarCarrito();
+  console.log(productoEliminado)
+  console.log(indice)
+}
 
 
 

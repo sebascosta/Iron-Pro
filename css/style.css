@@ -93,10 +93,13 @@ display: flex;
 }
 .p-cart{
     margin-right: 6rem;
+    font-family: 'Abel', sans-serif;
+    font-size: 20px;
 }
 .bannerContainer{
     display: flex;
     justify-content: center;
+    
 }
 .banner-promo{
     height: 60vh;
