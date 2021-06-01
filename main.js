@@ -1,4 +1,6 @@
 let lista= '';
+
+const contenedorCarrito = document.getElementById('contenido-cart');
 const contadorCarrito = document.getElementById('contadorCarrito');
 const precioTotal = document.getElementById('precioTotal');
 
@@ -66,7 +68,6 @@ function agregarItem(id){
 }
  //////////////////////////////////Productos en carrito//////////////////////////////////////////////////////////////
  
- const contenedorCarrito = document.getElementById('contenido-cart');
 
  function actualizarCarrito(){
   contenedorCarrito.innerHTML = '';

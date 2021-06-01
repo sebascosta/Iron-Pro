@@ -1,6 +1,37 @@
 let productList = [];
+const contenedorCarrito = document.getElementById('contenido-cart');
 const contadorCarrito = document.getElementById('contadorCarrito');
 const precioTotal = document.getElementById('precioTotal');
+const carritoCompra = localStorage.getItem("carrito")
+
+////////////////////////////////////Actualizar carrito////////////////////////////////////////////////////
+function actualizarCarrito(){
+    contenedorCarrito.innerHTML = '';
+    
+        carrito.forEach((producto)=>{      
+            
+            const div = document.createElement('div')
+            div.classList.add('productoEnCarrito')
+            div.innerHTML = `        
+                <div><img src="${producto.images}" style="width: 50px;
+                margin-right: 20px;"></div>   
+                <p class="p-cart">${producto.nombre}</p>
+                <p class="p-cart">Precio:$${producto.precio}</p>        
+                <button class="boton-eliminar" onclick = eliminarProducto(${producto.id}) style = "width: 20px;
+                background-color: indianred;
+                color: white;"><i class="bi bi-trash-fill"></i></button>              
+                `
+                contenedorCarrito.appendChild(div)
+      })
+  
+      contadorCarrito.innerText = carrito.length;
+      precioTotal.innerText = carrito.reduce((acc, el)=>acc+= el.precio, 0)
+    }
+    let carrito=[] 
+    if(carritoCompra != null){
+        carrito = JSON.parse(carritoCompra);
+       actualizarCarrito()
+    }
 
 /////////Fetch con json de productos////////
 const obtenerProductos = async () => {
@@ -41,7 +72,7 @@ function mostrarProductos(array){
     document.getElementById('articulos').innerHTML = lista;
 }
 
-///////////Se toma del dom el select y se asignan values para funcion filtrar del select//
+///////////Se toma del dom el select y se asignan values para funcion filtrar del select///////////////////////////
   const selectFiltro = document.getElementById('opciones');
 
   function filtrar(){
@@ -49,57 +80,26 @@ function mostrarProductos(array){
     if(filtro == "all"){
         mostrarProductos(productList)
     }else{
-        mostrarProductos((productList.filter( el => el.tipo == filtro)))
-        
+        mostrarProductos((productList.filter( el => el.tipo == filtro)))        
     }    
  };
-   ///
-  ///////////////////////////////////Agregar Items al carrito//////////////////////////////////////////
-
-  let carrito=[] 
-
+   /////////////////////////////////// Agregar Items al carrito //////////////////////////////////////////
   function agregarItem(id){
       
       let productoElegido = productList.find(el => el.id == id);
       if(productoElegido){
-      carrito.push(productoElegido);
-        
+      carrito.push(productoElegido);        
       }else{ 
           alert('Producto no disponible')
       }
-      localStorage.setItem('carrito', JSON.stringify(carrito))
+      localStorage.setItem("carrito", JSON.stringify(carrito))
+      //localStorage.carrito = carrito;
       console.log(carrito)
   
       actualizarCarrito();  
   }
 
-////////////////////////////////////Actualizar carrito////////////////////////////////////////////////////
-const contenedorCarrito = document.getElementById('contenido-cart');
-
- function actualizarCarrito(){
-  contenedorCarrito.innerHTML = '';
-  
-      carrito.forEach((producto)=>{      
-          
-          const div = document.createElement('div')
-          div.classList.add('productoEnCarrito')
-          div.innerHTML = `        
-              <div><img src="${producto.images}" style="width: 50px;
-              margin-right: 20px;"></div>   
-              <p class="p-cart">${producto.nombre}</p>
-              <p class="p-cart">Precio:$${producto.precio}</p>        
-              <button class="boton-eliminar" onclick = eliminarProducto(${producto.id}) style = "width: 20px;
-              background-color: indianred;
-              color: white;"><i class="bi bi-trash-fill"></i></button>              
-              `
-              contenedorCarrito.appendChild(div)
-    })
-
-    contadorCarrito.innerText = carrito.length;
-    precioTotal.innerText = carrito.reduce((acc, el)=>acc+= el.precio, 0)
-  }
-  
-////////Eliminar producto del carrito////
+///////////////////////////////// Eliminar producto del carrito /////////////////////////////
 
 function eliminarProducto(id){
     let productoEliminado = carrito.find(el => el.id == id)
@@ -110,6 +110,42 @@ function eliminarProducto(id){
     console.log(productoEliminado)
     console.log(indice)
 }
+
+////////////////////////////Pagar con Mercado Pago//////////////////////////////
+
+const finalizarCompra = async ()=> {
+        console.log(carrito)
+        const carritoAPagar = carrito.map((element)=>{
+            let nuevoElemento = {
+            title: element.nombre,
+            description: "",
+            picture_url: "",
+            category_id: element.id,
+            quantity: 1,
+            currency_id: "ARS",
+            unit_price: Number(element.precio)
+        };
+        return nuevoElemento
+        console.log(nuevoElemento);
+        })
+    const resp = await fetch('https://api.mercadopago.com/v1/payments', 
+    {
+        method: 'POST',
+        headers: {
+            Authorization: "Bearer TEST-7029705243129413-052415-2a2304e788a67e62fa770bf04604ac39-67363854"
+        },
+        body: JSON.stringify({             
+                items: carritoAPagar                
+        })
+    }
+    )
+
+    const data = await resp.json() 
+    console.log(data)
+    window.open(data.init_point, "_blank")
+}
+
+
 
 
 
@@ -146,3 +182,17 @@ class producto {
 
 
 
+/*
+
+
+    const carritoPagar = carrito.map(el => ({ 
+        title: el.title,
+        description: "",
+        picture_url: el.images,
+        category_id: el.id,
+        quantity: 1,
+        currency_id: "ARS",
+        unit_price: el.precio
+
+    }))
+*/
