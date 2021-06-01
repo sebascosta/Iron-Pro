@@ -146,6 +146,19 @@
             <a href="/startbootstrap-shop-homepage-gh-pages/shop.html"><img src="./img/banner-promo.png" alt="" class="banner-promo"></a>
           </div>
           <h3 class="art-head">Articulos destacados</h3>
+          </div>  
+         
+          <div class="select-div">
+            <h3>Elegí categoría</h3>
+            <select id="opciones">    
+             <option value="all">Todos</option>
+             <option value="kb">Kettlebell</option>
+             <option value="discos">Discos</option>
+             <option value="barras">Barras olimpicas</option>
+             <option value="mancuernas">Mancuernas</option>             
+            </select>
+            <button class= "btn btn-primary"onclick= filtrar()>Filtrar</button>
+          </div>
 
           <div class="row" id="productos"> </div>
           <!-- /.row -->

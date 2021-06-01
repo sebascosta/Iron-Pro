@@ -105,7 +105,9 @@ function eliminarProducto(id){
     let productoEliminado = carrito.find(el => el.id == id)
     let indice = carrito.indexOf(productoEliminado)
     carrito.splice(indice,1)
-
+    if(productoEliminado){
+        localStorage.removeItem(indice)
+    }
     actualizarCarrito();
     console.log(productoEliminado)
     console.log(indice)
@@ -128,7 +130,7 @@ const finalizarCompra = async ()=> {
         return nuevoElemento
         console.log(nuevoElemento);
         })
-    const resp = await fetch('https://api.mercadopago.com/v1/payments', 
+    const resp = await fetch( 'https://api.mercadopago.com/checkout/preferences', 
     {
         method: 'POST',
         headers: {
