@@ -1,6 +1,40 @@
 let lista= '';
+let productList = [];
+const carritoCompra = localStorage.getItem("carrito")
 const contadorCarrito = document.getElementById('contadorCarrito');
 const precioTotal = document.getElementById('precioTotal');
+const contenedorCarrito = document.getElementById('contenido-cart');
+
+function actualizarCarrito(){
+    contenedorCarrito.innerHTML = '';
+    
+        carrito.forEach((producto)=>{      
+            
+            const div = document.createElement('div')
+            div.classList.add('productoEnCarrito')
+            div.innerHTML = `        
+                <div><img src="${producto.images}" style="width: 50px;
+                margin-right: 20px;"></div>   
+                <p class="p-cart">${producto.nombre}</p>
+                <p class="p-cart">Precio:$${producto.precio}</p>        
+                <button class="boton-eliminar" onclick = eliminarProducto(${producto.id}) style = "width: 20px;
+                background-color: indianred;
+                color: white;"><i class="bi bi-trash-fill"></i></button>              
+                `
+                contenedorCarrito.appendChild(div)
+      })
+  
+      contadorCarrito.innerText = carrito.length;
+      precioTotal.innerText = carrito.reduce((acc, el)=>acc+= el.precio, 0)
+    }
+  
+  let carrito=[] 
+  if(carritoCompra != null){
+      carrito = JSON.parse(carritoCompra);
+     actualizarCarrito()
+  }
+  
+  
 
 class producto {
     constructor (id, nombre, precio, stock, images){
@@ -11,7 +45,7 @@ class producto {
         this.images = images
     }
 }
-const productList = [];
+
 
     productList.push(productoUno = new producto (1,'Mancuerna 8kg', 1150, 10, 'img/hexa3.png'));
     productList.push(productoDos = new producto (2,'Mancuerna 10kg', 2300, 10,'img/hexa3.png'))
@@ -43,7 +77,7 @@ const productList = [];
 
   document.getElementById('articulos').innerHTML = lista;
 
-  let carrito=[] 
+ 
 
 
 
@@ -64,35 +98,6 @@ function agregarItem(id){
 }
 
 
-
-const contenedorCarrito = document.getElementById('contenido-cart');
-
- function actualizarCarrito(){
-     
-  contenedorCarrito.innerHTML = '';
-  
-      carrito.forEach((producto)=>{      
-          
-          const div = document.createElement('div')
-          div.classList.add('productoEnCarrito')
-          div.innerHTML = `        
-          <div><img src="${producto.images}" style="width: 50px;
-          margin-right: 20px;"></div>   
-          <p class="p-cart">${producto.nombre}</p>
-          <p class="p-cart">Precio:$${producto.precio}</p>        
-          <button class="boton-eliminar" onclick = eliminarProducto(${producto.id}) style = "width: 20px;
-          background-color: indianred;
-          color: white;"><i class="bi bi-trash-fill"></i></button>     
-              
-              `
-              contenedorCarrito.appendChild(div)
-              console.log("se agrego")
-      })
-
-    contadorCarrito.innerText = carrito.length;
-    precioTotal.innerText = carrito.reduce((acc, el)=>acc+= el.precio, 0)
-  }
-
   ////////Eliminar producto del carrito////
 
 function eliminarProducto(id){
@@ -104,3 +109,37 @@ function eliminarProducto(id){
     console.log(productoEliminado)
     console.log(indice)
 }
+////////////////////////////Pagar con Mercado Pago//////////////////////////////
+
+const finalizarCompra = async ()=> {
+    console.log(carrito)
+    const carritoAPagar = carrito.map((element)=>{
+        let nuevoElemento = {
+        title: element.nombre,
+        description: "",
+        picture_url: "",
+        category_id: element.id,
+        quantity: 1,
+        currency_id: "ARS",
+        unit_price: Number(element.precio)
+    };
+    return nuevoElemento
+    console.log(nuevoElemento);
+    })
+  const resp = await fetch('https://api.mercadopago.com/checkout/preferences', 
+  {
+    method: 'POST',
+    headers: {
+        Authorization: "Bearer TEST-7029705243129413-052415-2a2304e788a67e62fa770bf04604ac39-67363854"
+    },
+    body: JSON.stringify({             
+            items: carritoAPagar                
+    })
+  }
+  )
+  
+  const data = await resp.json() 
+  console.log(data)
+  window.open(data.init_point, "_blank")
+  }
+  
